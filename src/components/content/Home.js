@@ -3,23 +3,26 @@ import getVideoId from "get-video-id";
 import { Container } from "./contentElements";
 import { fetchData } from "../../api/fetchData";
 import VideoBox from "../video/VideoBox";
-import { VideosContainer } from "../video/videoElements";
+import { VideosContainer, ListModal } from "../video/videoElements";
 import { VideoContext } from "../../context/videoContext";
 const Home = () => {
   const [text, setText] = useState("");
   const [videos, setVideos] = useState([]);
   const [message, setMessage] = useState({ success: false, message: "" });
   const [videoList, setVideoList] = useState([]);
+  // const [modalListOpen, setModalListOpen] = useState(false);
+  // const [modalListText, setModalListText] = useState("");
 
   useEffect(() => {
     setVideoList(
-      videos.map(({ id, snippet, statistics }, index) => (
+      videos.map(({ id, snippet, statistics, list }, index) => (
         <VideoBox
           id={id}
           key={id}
           snippet={snippet}
           statistics={statistics}
           index={index}
+          list={list}
         />
       ))
     );
@@ -53,6 +56,8 @@ const Home = () => {
 
       <VideoContext.Provider value={{ videos, setVideos }}>
         <VideosContainer>{videoList ? videoList : null}</VideosContainer>
+
+        {/* <ListModal modalListOpen={modalListOpen}>{modalListText}</ListModal> */}
       </VideoContext.Provider>
     </Container>
   );

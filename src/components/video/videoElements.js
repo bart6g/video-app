@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 export const VideosContainer = styled.div`
   max-width: 1300px;
@@ -96,4 +96,43 @@ export const InfoWrap = styled.div`
       font-size: 14px;
     }
   }
+`;
+
+const listModalOpen = keyframes`
+  from{
+    transform: translateY(300px);
+  }
+  to{
+    transform: translateY(0);
+  }
+`;
+const listModalClose = keyframes`
+  from{
+    transform: translateY(0);
+  }
+  to{
+    transform: translateY(300px);
+  }
+`;
+export const ListModal = styled.div`
+  position: fixed;
+  left: 0;
+  bottom: 80px;
+  width: 240px;
+  margin: 12px;
+  padding: 8px 24px;
+  background-color: #323232;
+  color: white;
+  /* transform: translateY(300px); */
+  transition: all 0.3s ease;
+  transform: ${({ modalListOpen }) =>
+    modalListOpen ? "translateY(0)" : "translateY(300px)"};
+  animation: ${({ modalListOpen }) =>
+    modalListOpen
+      ? css`
+          ${listModalOpen} 1s
+        `
+      : css`
+          ${listModalClose} 1s
+        `};
 `;
