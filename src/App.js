@@ -11,10 +11,12 @@ import { VideoContext } from "./context/videoContext";
 
 const App = () => {
   const [videos, setVideos] = useState([]);
+  const [videoList, setVideoList] = useState([]);
+
   return (
     <Router>
       <Navbar />
-      <VideoContext.Provider value={{ videos, setVideos }}>
+      <VideoContext.Provider value={{ videos, setVideos, videoList, setVideoList }}>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />

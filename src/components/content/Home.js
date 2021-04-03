@@ -8,9 +8,10 @@ import { VideoContext } from "../../context/videoContext";
 import AddVideo from "../addvideo/AddVideo";
 const Home = () => {
   // const [text, setText] = useState("");
-  const { videos } = useContext(VideoContext);
+  const { videos,videoList, setVideoList } = useContext(VideoContext);
   // const [message, setMessage] = useState({ success: false, message: "" });
-  const [videoList, setVideoList] = useState([]);
+  // const [videoList, setVideoList] = useState([]);
+ 
 
   useEffect(() => {
     setVideoList(

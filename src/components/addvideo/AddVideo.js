@@ -7,7 +7,7 @@ import { AddVideoContainer, Form } from "./addElements";
 const AddVideo = () => {
   const { videos, setVideos } = useContext(VideoContext);
   const [message, setMessage] = useState({ success: null, message: "" });
-  const [videoText, setVideoText] = useState(null);
+  const [videoText, setVideoText] = useState("");
   const addVideo = (e) => {
     e.preventDefault();
     let string = videoText ? videoText : "wrong";
