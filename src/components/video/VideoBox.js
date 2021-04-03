@@ -1,14 +1,17 @@
 import React, { useState, useContext } from "react";
-import { Box, ImgWrap, InfoWrap, ListModal } from "./videoElements";
+import { Box, ImgWrap, InfoWrap } from "./videoElements";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { VideoContext } from "../../context/videoContext";
+import DeleteModal from "../modals/DeleteModal";
+import ListModal from "../modals/ListModal";
 
 const VideoBox = ({ id, snippet, statistics, index, list }) => {
   const [liked, setLiked] = useState(list.like);
   const [disliked, setDisliked] = useState(list.dislike);
   const [modalListOpen, setModalListOpen] = useState(false);
   const [modalListText, setModalListText] = useState("");
+  const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
 
   const { thumbnails, title, channelTitle } = snippet;
   const { commentCount, viewCount } = statistics;
@@ -49,13 +52,6 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
     setVideos(prevVideos);
   };
 
-  const handleDelete = (id) => {
-    const prevVideos = [...videos];
-    const filtedVideos = prevVideos.filter((video) => video.id !== id);
-
-    setVideos(filtedVideos);
-  };
-
   return (
     <>
       <Box>
@@ -91,12 +87,20 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
           <p>Comments: {commentCount}</p>
         </InfoWrap>
         <div className="delete">
-          <RiDeleteBin5Fill onClick={() => handleDelete(id)} />
+          <RiDeleteBin5Fill onClick={() => setModalDeleteOpen(true)} />
         </div>
-        {/* <button onClick={() => console.log(snippet)}>Info</button>
-      <button onClick={() => console.log(statistics)}>Stat</button> */}
-        <ListModal modalListOpen={modalListOpen}>{modalListText}</ListModal>
+        <ListModal
+          modalListOpen={modalListOpen}
+          modalListText={modalListText}
+        />
       </Box>
+      {modalDeleteOpen ? (
+        <DeleteModal
+          id={id}
+          title={title}
+          setModalDeleteOpen={setModalDeleteOpen}
+        />
+      ) : null}
     </>
   );
 };
