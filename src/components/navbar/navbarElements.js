@@ -67,6 +67,7 @@ export const NavLinks = styled.ul`
       isMenuOpened ? "translateY(0)" : "translateY(-100%)"};
     transition: all 0.3s ease;
     overflow-x: hidden;
+    z-index: 9;
     a {
       color: white !important;
     }
@@ -100,6 +101,7 @@ export const Hamburger = styled.div`
   position: absolute;
   right: 30px;
   visibility: hidden;
+  z-index:10;
 
   @media screen and (max-width: 768px) {
     visibility: visible;

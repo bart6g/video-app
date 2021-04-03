@@ -22,15 +22,15 @@ const Navbar = () => {
         </Logo>
         <NavLinks isMenuOpened={isMenuOpened}>
           <li>
-            <NavLink to="/" exact>
+            <NavLink to="/" exact onClick={()=>setMenuOpened(false)}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/about" onClick={()=>setMenuOpened(false)}>About</NavLink>
           </li>
           <li>
-            <NavLink to="/list">Video List</NavLink>
+            <NavLink to="/list" onClick={()=>setMenuOpened(false)}>Video List</NavLink>
           </li>
         </NavLinks>
         <Hamburger onClick={() => setMenuOpened(!isMenuOpened)}>
