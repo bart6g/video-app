@@ -49,20 +49,23 @@ export const DeleteModalContainer = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  z-index: 10;
 `;
 
 export const DeleteBox = styled.div`
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #ff0000;
   width: 450px;
-  height: 150px;
+  min-height: 140px;
   padding: 20px 40px;
   position: relative;
+  color: white;
 
   h4 {
     padding-right: 15px;
   }
   .buttons {
     margin: 10px 0;
+    padding-top: 10px;
 
     button {
       padding: 5px 20px;

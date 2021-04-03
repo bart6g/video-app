@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from "styled-components";
+import styled from "styled-components";
 
 export const VideosContainer = styled.div`
   max-width: 1300px;
@@ -34,6 +34,7 @@ export const Box = styled.div`
   .delete {
     position: absolute;
     right: 30px;
+    bottom: 30px;
     font-size: 30px;
     color: #909090;
     visibility: hidden;
@@ -44,7 +45,6 @@ export const Box = styled.div`
     flex-direction: column;
 
     .delete {
-      top: 50%;
     }
   }
 `;

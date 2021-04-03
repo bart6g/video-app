@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar/Navbar";
@@ -7,15 +7,20 @@ import Home from "./components/content/Home";
 import About from "./components/content/About";
 import VideoList from "./components/content/VideoList";
 
+import { VideoContext } from "./context/videoContext";
+
 const App = () => {
+  const [videos, setVideos] = useState([]);
   return (
     <Router>
       <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/list" component={VideoList} />
-      </Switch>
+      <VideoContext.Provider value={{ videos, setVideos }}>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/list" component={VideoList} />
+        </Switch>
+      </VideoContext.Provider>
 
       <Footer />
     </Router>

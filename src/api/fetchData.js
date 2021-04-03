@@ -2,7 +2,7 @@ import axios from "axios";
 require("dotenv").config();
 const APIKey = process.env.REACT_APP_KEY;
 
-export const fetchData = async (id, videos, setVideos, setMessage) => {
+export const fetchData = async (id, videos, setVideos, setMessage, setText) => {
   const response = await axios
     .get(
       `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${APIKey}&part=snippet,statistics&fields=items(id,snippet,statistics)`
@@ -22,20 +22,38 @@ export const fetchData = async (id, videos, setVideos, setMessage) => {
             success: true,
             message: "Video was successfully added.",
           });
+
+          setTimeout(() => {
+            setMessage({
+              success: null,
+              message: "",
+            });
+          }, 2000);
         } else {
           setMessage({
             success: false,
             message: "Video is already in your collection.",
           });
+          setTimeout(() => {
+            setMessage({
+              success: null,
+              message: "",
+            });
+          }, 2000);
         }
       }
     })
     .catch((err) => {
-      console.log(process.env.REACT_APP_KEY);
       setMessage({
         success: false,
         message: "Something went wrong.",
       });
+      setTimeout(() => {
+        setMessage({
+          success: null,
+          message: "",
+        });
+      }, 2000);
     });
   return response;
 };

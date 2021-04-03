@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { VideoContext } from "../../context/videoContext";
 import { DeleteBox, DeleteModalContainer } from "./modalElements";
 import { AiOutlineClose } from "react-icons/ai";
@@ -17,7 +17,7 @@ const DeleteModal = ({ id, title, setModalDeleteOpen }) => {
   return (
     <DeleteModalContainer>
       <DeleteBox>
-        <h4>Are you sure you want to delete "{title}" from list?</h4>
+        <p>Are you sure you want to delete "{title}" from list?</p>
         <div className="buttons">
           <button onClick={() => handleDelete(id)}>Yes</button>
           <button onClick={() => setModalDeleteOpen(false)}>No</button>
