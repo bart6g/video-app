@@ -49,7 +49,7 @@ export const initialData = [
       favoriteCount: "0",
       commentCount: "37551",
     },
-    list: { dislike: false, like: false },
+    list: { dislike: true, like: false },
   },
 
   {
@@ -109,7 +109,7 @@ export const initialData = [
       favoriteCount: "0",
       commentCount: "60530",
     },
-    list: { dislike: false, like: false },
+    list: { dislike: false, like: true },
   },
 
   {

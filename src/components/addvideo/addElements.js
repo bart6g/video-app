@@ -62,6 +62,10 @@ export const Form = styled.form`
     @media screen and (max-width: 650px) {
       width: 100%;
       padding: 0 20px;
+
+      span {
+        margin-left: 20px;
+      }
     }
   }
   button {

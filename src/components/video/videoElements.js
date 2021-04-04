@@ -53,7 +53,7 @@ export const ImgContainer = styled.div`
   img {
     width: 100%;
     min-width: 250px;
-
+    padding: 10px 0;
     &:hover {
       cursor: pointer;
     }
