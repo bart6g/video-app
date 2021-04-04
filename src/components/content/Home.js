@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 // import getVideoId from "get-video-id";
 import { Container } from "./contentElements";
 // import { fetchData } from "../../api/fetchData";
@@ -8,24 +8,27 @@ import { VideoContext } from "../../context/videoContext";
 import AddVideo from "../addvideo/AddVideo";
 const Home = () => {
   // const [text, setText] = useState("");
-  const { videos,videoList, setVideoList } = useContext(VideoContext);
+  const { videos, videoList, setVideoList } = useContext(VideoContext);
   // const [message, setMessage] = useState({ success: false, message: "" });
   // const [videoList, setVideoList] = useState([]);
- 
 
   useEffect(() => {
-    setVideoList(
-      videos.map(({ id, snippet, statistics, list }, index) => (
-        <VideoBox
-          id={id}
-          key={id}
-          snippet={snippet}
-          statistics={statistics}
-          index={index}
-          list={list}
-        />
-      ))
-    );
+    if (videos) {
+      setVideoList(
+        videos.map(({ id, snippet, statistics, list }, index) => (
+          <VideoBox
+            id={id}
+            key={id}
+            snippet={snippet}
+            statistics={statistics}
+            index={index}
+            list={list}
+          />
+        ))
+      );
+    } else {
+      setVideoList([]);
+    }
   }, [videos]);
 
   // const addVideo = (e) => {

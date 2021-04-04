@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar/Navbar";
@@ -6,17 +6,28 @@ import Footer from "./components/footer/Footer";
 import Home from "./components/content/Home";
 import About from "./components/content/About";
 import VideoList from "./components/content/VideoList";
-
+import { initialData } from "./initData";
 import { VideoContext } from "./context/videoContext";
 
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [videoList, setVideoList] = useState([]);
 
+  useEffect(() => {
+    const localVideos = JSON.parse(localStorage.getItem("videos"));
+    // console.log(localVideos);
+    if (!localVideos) {
+      setVideos(initialData);
+    } else {
+      setVideos(localVideos);
+    }
+  }, []);
   return (
     <Router>
       <Navbar />
-      <VideoContext.Provider value={{ videos, setVideos, videoList, setVideoList }}>
+      <VideoContext.Provider
+        value={{ videos, setVideos, videoList, setVideoList }}
+      >
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />

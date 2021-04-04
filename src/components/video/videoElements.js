@@ -43,18 +43,20 @@ export const Box = styled.div`
 
   @media screen and (max-width: 600px) {
     flex-direction: column;
-
-    .delete {
-    }
   }
 `;
 
-export const ImgWrap = styled.div`
+export const ImgContainer = styled.div`
   max-width: 350px;
   padding: 10px;
+
   img {
     width: 100%;
     min-width: 250px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .like-stat {
@@ -87,11 +89,33 @@ export const ImgWrap = styled.div`
   }
 `;
 
+export const ImgWrap = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .play {
+    position: absolute;
+    font-size: 75px;
+    color: white;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+`;
+
 export const InfoWrap = styled.div`
   max-width: 300px;
-  padding: 20px;
+  padding: 30px 0px 30px 30px;
+  margin-right: 50px;
 
   @media screen and (max-width: 600px) {
+    margin-right: 0;
+    padding-right: 30px;
     h3 {
       font-size: 14px;
     }

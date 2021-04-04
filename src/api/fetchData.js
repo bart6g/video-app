@@ -18,6 +18,7 @@ export const fetchData = async (id, videos, setVideos, setMessage, setText) => {
             list: { dislike: false, like: false },
           });
           setVideos(actVideos);
+          localStorage.setItem("videos", JSON.stringify(actVideos));
           setMessage({
             success: true,
             message: "Video was successfully added.",

@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
-import { Box, ImgWrap, InfoWrap } from "./videoElements";
+import { Box, ImgContainer, InfoWrap, ImgWrap } from "./videoElements";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { BsFillPlayFill } from "react-icons/bs";
 import { VideoContext } from "../../context/videoContext";
 import DeleteModal from "../modals/DeleteModal";
 import ListModal from "../modals/ListModal";
@@ -58,12 +59,18 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
     <>
       <Box>
         <h2>{index + 1}</h2>
-        <ImgWrap liked={liked ? 1 : 0} disliked={disliked ? 1 : 0}>
-          <img
-            src={thumbnails.medium.url}
-            alt={title}
-            onClick={() => setModalVideoOpen(true)}
-          />
+        <ImgContainer liked={liked ? 1 : 0} disliked={disliked ? 1 : 0}>
+          <ImgWrap>
+            <img
+              src={thumbnails.medium.url}
+              alt={title}
+              onClick={() => setModalVideoOpen(true)}
+            />
+            <BsFillPlayFill
+              className="play"
+              onClick={() => setModalVideoOpen(true)}
+            />
+          </ImgWrap>
           <div className="like-stat">
             <p>
               {liked
@@ -84,7 +91,7 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
                 : statistics.dislikeCount}
             </p>
           </div>
-        </ImgWrap>
+        </ImgContainer>
 
         <InfoWrap>
           <h3>{title}</h3>
