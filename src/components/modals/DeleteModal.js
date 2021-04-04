@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { VideoContext } from "../../context/videoContext";
-import { DeleteBox, DeleteModalContainer } from "./modalElements";
+import { DeleteBox, ModalContainer } from "./modalElements";
 import { AiOutlineClose } from "react-icons/ai";
 
 const DeleteModal = ({ id, title, setModalDeleteOpen }) => {
@@ -15,7 +15,7 @@ const DeleteModal = ({ id, title, setModalDeleteOpen }) => {
   };
 
   return (
-    <DeleteModalContainer>
+    <ModalContainer>
       <DeleteBox>
         <p>Are you sure you want to delete "{title}" from list?</p>
         <div className="buttons">
@@ -27,7 +27,7 @@ const DeleteModal = ({ id, title, setModalDeleteOpen }) => {
           onClick={() => setModalDeleteOpen(false)}
         />
       </DeleteBox>
-    </DeleteModalContainer>
+    </ModalContainer>
   );
 };
 

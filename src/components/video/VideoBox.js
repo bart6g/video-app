@@ -5,6 +5,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 import { VideoContext } from "../../context/videoContext";
 import DeleteModal from "../modals/DeleteModal";
 import ListModal from "../modals/ListModal";
+import VideoModal from "../modals/VideoModal";
 
 const VideoBox = ({ id, snippet, statistics, index, list }) => {
   const [liked, setLiked] = useState(list.like);
@@ -12,6 +13,7 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
   const [modalListOpen, setModalListOpen] = useState(false);
   const [modalListText, setModalListText] = useState("");
   const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
+  const [modalVideoOpen, setModalVideoOpen] = useState(false);
 
   const { thumbnails, title, channelTitle } = snippet;
   const { commentCount, viewCount } = statistics;
@@ -57,7 +59,11 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
       <Box>
         <h2>{index + 1}</h2>
         <ImgWrap liked={liked ? 1 : 0} disliked={disliked ? 1 : 0}>
-          <img src={thumbnails.medium.url} alt="" />
+          <img
+            src={thumbnails.medium.url}
+            alt={title}
+            onClick={() => setModalVideoOpen(true)}
+          />
           <div className="like-stat">
             <p>
               {liked
@@ -99,6 +105,14 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
           id={id}
           title={title}
           setModalDeleteOpen={setModalDeleteOpen}
+        />
+      ) : null}
+
+      {modalVideoOpen ? (
+        <VideoModal
+          id={id}
+          title={title}
+          setModalVideoOpen={setModalVideoOpen}
         />
       ) : null}
     </>

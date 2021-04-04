@@ -39,17 +39,26 @@ export const ListModalContainer = styled.div`
         `};
 `;
 
-export const DeleteModalContainer = styled.div`
-  position: absolute;
+export const ModalContainer = styled.div`
+  position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: ${({ darker }) =>
+    darker ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0.2)"};
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
   z-index: 10;
+
+  .big-cross {
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
 `;
 
 export const DeleteBox = styled.div`
@@ -58,6 +67,9 @@ export const DeleteBox = styled.div`
   min-height: 140px;
   padding: 20px 40px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: white;
 
   h4 {
@@ -93,6 +105,44 @@ export const DeleteBox = styled.div`
     &:hover {
       transform: translateY(-5px);
       opacity: 0.7;
+    }
+  }
+`;
+
+export const VideoBox = styled.div`
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  position: relative;
+  .big-cross {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+    color: black;
+    /* color: white; */
+    cursor: pointer;
+  }
+  h3 {
+    padding: 30px;
+  }
+  iframe {
+    width: 80%;
+    height: 400px;
+    margin-bottom: 50px;
+
+    @media screen and (max-width: 500px) {
+      height: 300px;
+    }
+  }
+  @media screen and (max-width: 630px) {
+    width: 100%;
+    h3 {
+      margin-right: 40px;
     }
   }
 `;
