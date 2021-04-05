@@ -102,10 +102,12 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
         <div className="delete">
           <RiDeleteBin5Fill onClick={() => setModalDeleteOpen(true)} />
         </div>
-        <ListModal
-          modalListOpen={modalListOpen}
-          modalListText={modalListText}
-        />
+        {modalListOpen ? (
+          <ListModal
+            modalListOpen={modalListOpen}
+            modalListText={modalListText}
+          />
+        ) : null}
       </Box>
       {modalDeleteOpen ? (
         <DeleteModal

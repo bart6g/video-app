@@ -12,6 +12,8 @@ const listModalClose = keyframes`
   from{
     transform: translateY(0);
   }
+
+  }
   to{
     transform: translateY(300px);
   }
@@ -25,7 +27,9 @@ export const ListModalContainer = styled.div`
   padding: 8px 24px;
   background-color: #323232;
   color: white;
+  z-index: 5;
   /* transform: translateY(300px); */
+
   transition: all 0.3s ease;
   transform: ${({ modalListOpen }) =>
     modalListOpen ? "translateY(0)" : "translateY(300px)"};

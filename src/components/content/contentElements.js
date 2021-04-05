@@ -1,4 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const loadPage = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const Container = styled.div`
   min-height: calc(100vh - 200px);
@@ -6,11 +18,15 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 20px 0;
+  margin-bottom: 50px;
+  opacity: 1;
+  transform: translateY(0);
+  animation: ${loadPage} 1s;
 `;
 
 export const Title = styled.div`
   display: flex;
-
+  margin: 30px 0;
   align-items: center;
   button {
     border-radius: 20px;
@@ -35,7 +51,7 @@ export const Title = styled.div`
     background-color: red;
     border-radius: 20px;
     transition: all 0.3s ease;
-    transform: ${({ liked }) => (liked ? "translateX(0)" : "translateX(100%)")};
+    transform: ${({ liked }) => (liked ? "translateX(100%)" : "translateX(0)")};
     width: 50%;
     height: 100%;
     top: 0;
