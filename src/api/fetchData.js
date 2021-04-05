@@ -3,7 +3,6 @@ require("dotenv").config();
 const APIKey = process.env.REACT_APP_KEY;
 
 export const fetchData = async (id, videos, setVideos, setMessage, setText) => {
-  console.log(process.env);
   const response = await axios
     .get(
       `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${APIKey}&part=snippet,statistics&fields=items(id,snippet,statistics)`
