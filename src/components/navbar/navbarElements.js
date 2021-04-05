@@ -18,6 +18,9 @@ export const NavWrapper = styled.div`
   padding: 0 30px;
   position: relative;
   overflow: visible;
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const Logo = styled.div`
@@ -101,7 +104,7 @@ export const Hamburger = styled.div`
   position: absolute;
   right: 30px;
   visibility: hidden;
-  z-index:10;
+  z-index: 10;
 
   @media screen and (max-width: 768px) {
     visibility: visible;
