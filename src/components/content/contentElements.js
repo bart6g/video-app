@@ -17,7 +17,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  max-width: 1300px;
+  margin: 20px auto;
   margin-bottom: 50px;
   opacity: 1;
   transform: translateY(0);
@@ -58,3 +59,43 @@ export const Title = styled.div`
     left: 0;
   }
 `;
+
+export const AboutWrap = styled.div`
+  width: 100%;
+  /* background-color: red; */
+  padding: 30px;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media screen and (max-width:768px){
+    flex-direction: column;
+  }
+`
+export const Info = styled.div`
+padding: 0 10px;
+max-width: 450px;
+@media screen and (max-width:768px){
+    margin-bottom: 20px;
+  }
+p{
+  text-align: justify;
+}
+`
+
+export const ImgWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  img{
+    width: 100%;
+  }
+
+  @media screen and (max-width:768px){
+    max-width: 400px;
+  }
+`
+
+
