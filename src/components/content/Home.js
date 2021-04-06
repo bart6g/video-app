@@ -45,7 +45,7 @@ const Home = () => {
   //   fetchData(obj.id, videos, setVideos, setMessage);
   // };
   return (
-    <Container>
+    <Container animated={true}>
       <AddVideo />
       <VideosContainer>{videoList ? videoList : null}</VideosContainer>
     </Container>

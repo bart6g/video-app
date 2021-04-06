@@ -45,7 +45,7 @@ const VideoList = () => {
   }, [videos]);
 
   return (
-    <Container>
+    <Container animated={true}>
       <Title liked={liked ? 1 : 0}>
         List of
         <button onClick={() => setLiked(!liked)}>
