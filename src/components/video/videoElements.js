@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+
 
 export const VideosContainer = styled.div`
   max-width: 1300px;
@@ -9,8 +9,11 @@ export const VideosContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* position: relative; */
+  z-index: 8;
+
 `;
-export const Box = styled(motion.div)`
+export const Box = styled.div`
   margin: 10px auto;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
@@ -19,6 +22,7 @@ export const Box = styled(motion.div)`
   align-items: center;
   position: relative;
   transition: all 0.2s ease;
+  
 
   &:hover {
     background-color: #f3f3f3;

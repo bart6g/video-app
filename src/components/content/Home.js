@@ -6,6 +6,7 @@ import VideoBox from "../video/VideoBox";
 import { VideosContainer } from "../video/videoElements";
 import { VideoContext } from "../../context/videoContext";
 import AddVideo from "../addvideo/AddVideo";
+import DeleteModal from "../modals/DeleteModal";
 const Home = () => {
   // const [text, setText] = useState("");
   const { videos, videoList, setVideoList } = useContext(VideoContext);
@@ -48,6 +49,7 @@ const Home = () => {
     <Container animated={true}>
       <AddVideo />
       <VideosContainer>{videoList ? videoList : null}</VideosContainer>
+    
     </Container>
   );
 };

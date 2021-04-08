@@ -19,7 +19,7 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
   const { thumbnails, title, channelTitle } = snippet;
   const { commentCount, viewCount } = statistics;
 
-  const { videos, setVideos } = useContext(VideoContext);
+  const { videos, setVideos, setIsBg } = useContext(VideoContext);
 
   const handleChangeLike = (value, id) => {
     const prevVideos = [...videos];
@@ -100,7 +100,7 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
           <p>Comments: {commentCount}</p>
         </InfoWrap>
         <div className="delete">
-          <RiDeleteBin5Fill onClick={() => setModalDeleteOpen(true)} />
+          <RiDeleteBin5Fill onClick={() => {setModalDeleteOpen(true); setIsBg(true)}} />
         </div>
         {modalListOpen ? (
           <ListModal
@@ -108,22 +108,22 @@ const VideoBox = ({ id, snippet, statistics, index, list }) => {
             modalListText={modalListText}
           />
         ) : null}
+        {modalDeleteOpen ? (
+          <DeleteModal
+            id={id}
+            title={title}
+            setModalDeleteOpen={setModalDeleteOpen}
+          />
+        ) : null}
+        {modalVideoOpen ? (
+          <VideoModal
+            id={id}
+            title={title}
+            setModalVideoOpen={setModalVideoOpen}
+          />
+        ) : null}
       </Box>
-      {modalDeleteOpen ? (
-        <DeleteModal
-          id={id}
-          title={title}
-          setModalDeleteOpen={setModalDeleteOpen}
-        />
-      ) : null}
 
-      {modalVideoOpen ? (
-        <VideoModal
-          id={id}
-          title={title}
-          setModalVideoOpen={setModalVideoOpen}
-        />
-      ) : null}
     </>
   );
 };

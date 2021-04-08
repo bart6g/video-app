@@ -14,7 +14,6 @@ const loadPage = keyframes`
 
 export const Container = styled.div`
   min-height: calc(100vh - 200px);
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,4 +150,17 @@ img{
   width: 90%;
   margin: 0 auto;  
 }
+  }
 `;
+
+export const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+`
+
+

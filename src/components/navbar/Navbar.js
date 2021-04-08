@@ -16,12 +16,13 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <NavWrapper>
-        <a href="https://youtube.com" target="_blank" rel="noreferrer">
-          <Logo>
-            <AiFillYoutube />
-            <h1>VideoApp</h1>
-          </Logo>
-        </a>
+        <NavLink to="/" exact>
+        <Logo>
+        <AiFillYoutube />
+        <h1>VideoApp</h1>
+        </Logo>
+        </NavLink>
+        
         <NavLinks isMenuOpened={isMenuOpened}>
           <li>
             <NavLink to="/" exact onClick={() => setMenuOpened(false)}>
