@@ -4,7 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const VideoModal = ({ title, id, setModalVideoOpen }) => {
   return (
-    <ModalContainer darker={true}>
+
       <VideoBox>
         <AiOutlineClose
           className="big-cross"
@@ -19,7 +19,6 @@ const VideoModal = ({ title, id, setModalVideoOpen }) => {
           title="Embedded youtube"
         />
       </VideoBox>
-    </ModalContainer>
   );
 };
 

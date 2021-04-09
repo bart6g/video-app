@@ -44,9 +44,10 @@ export const ListModalContainer = styled.div`
 `;
 
 export const ModalContainer = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
+
   background-color: ${({ darker }) =>
     darker ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0.2)"};
   display: flex;
@@ -55,6 +56,7 @@ export const ModalContainer = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 10;
+
 
   .big-cross {
     font-size: 40px;
@@ -67,14 +69,19 @@ export const ModalContainer = styled.div`
 
 export const DeleteBox = styled.div`
   background-color: #ff0000;
-  width: 450px;
+  max-width: 500px;
   min-height: 140px;
   padding: 20px 40px;
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
+  /* left: 200px; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 
   h4 {
     padding-right: 15px;
@@ -111,6 +118,9 @@ export const DeleteBox = styled.div`
       opacity: 0.7;
     }
   }
+  @media screen and (max-width:650px){
+    width: 100%;
+  }
 `;
 
 export const VideoBox = styled.div`
@@ -121,7 +131,13 @@ export const VideoBox = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: white;
-  position: relative;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   .big-cross {
     position: absolute;
     top: 30px;
@@ -144,7 +160,8 @@ export const VideoBox = styled.div`
     }
   }
   @media screen and (max-width: 630px) {
-    width: 100%;
+    width: 90vw;
+    
     h3 {
       margin-right: 40px;
     }
