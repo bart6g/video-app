@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# VideoApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application was written in React, inspired by recruiting task. The application uses YoutubeAPI and Axios to fetch data. In the initial state of the application there are three videos, user can add more or delete existing ones. Saving new movie will result saving all videos to the local storage of the browser. VideoApp uses also ContextAPI to manage the state of the application. All the components were written with Styled Components. All the parts are interactive except the footer, where only the Github icon leads to the developer's page. Application was deployed on heroku: https://video-app-bartosz.herokuapp.com/about
 
 ## Available Scripts
 
