@@ -3,6 +3,7 @@ require("dotenv").config();
 const APIKey = process.env.REACT_APP_KEY;
 
 export const fetchData = async (id, videos, setVideos, setMessage, setText) => {
+  console.log(APIKey);
   const response = await axios
     .get(
       `https://www.googleapis.com/youtube/v3/videos?id=${id}&key=${APIKey}&part=snippet,statistics&fields=items(id,snippet,statistics)`
@@ -13,7 +14,7 @@ export const fetchData = async (id, videos, setVideos, setMessage, setText) => {
         const tempVideo = res.data.items[0];
         const index = actVideos.findIndex((el) => el.id === tempVideo.id);
         if (index === -1) {
-          actVideos.push({
+          actVideos.unshift({
             ...tempVideo,
             list: { dislike: false, like: false },
           });
